@@ -1,0 +1,33 @@
+{%extends 'student-base.html'%}
+{%block content%}
+<div class = "title">
+    <h1>My Applications</h1>
+</div>
+{% for application in applications %}
+    <div class = "card">
+        <div class = "body">
+            <div>
+                <h2> {{ application.opportunity_ID }} - {{ application.opportunity.name }} </h2>
+                <p> Your Educational Institute - {{ application.institute }}</p>
+                <p> Level - {{ application.level }}</p>
+                <h4> Submission: </h4>
+                <p> {{ application.content }} </p>
+            </div>
+        </div>
+        <div style = "display: flex; flex-direction: column; align-items: center; gap: 10px;">
+            <div class = "card-icon">
+            {% if application.status == 'Waiting' %}
+                <h2><i class="fa-solid fa-clock-rotate-left" style = "font-size: 130px;"></i></h2>
+            {% elif application.status == 'Rejected' %}
+                <h2><i class="fa-solid fa-circle-xmark" style = "font-size: 130px;"></i></h2>
+            {% elif application.status == 'Approved' %}
+                <h2><i class="fa-solid fa-circle-check" style = "font-size: 130px;"></i></h2>
+            {% endif %}
+            </div>
+            <div class = "btn-delete">
+                <a href = "/delete-app/{{ application.id }}" class = "btn-delete">Delete</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'student-base.html' %}
+{% block content %}
+<div class = "title">
+    <h1>Submit Application</h1>
+</div>
+<div class = "form">
+    <div class = "form-container">
+        <form method = "POST" action = "">
+            {{ form.hidden_tag() }}
+            <p>{{ form.institute.label() }}
+            {{ form.institute }}</p>
+            <p>{{ form.text.label() }}
+            {{ form.text }}</p>
+            <p>{{ form.level.label() }}
+            {{ form.level }}</p>
+            <p>{{ form.submit }}</p>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'professor-base.html' %}
+{% block content %}
+<div class = 'title'>
+    <h1> View Opportunities </h1>
+</div>
+
+<form action="/view-opportunities-professor" method="GET" class="search-container">
+    <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" name="query" placeholder="Search opportunities..." class="search-input">
+        <button type="submit" class="search-button">Search</button>
+    </div>
+</form>
+
+{% for opportunity in opportunities %}
+<div class = card>
+    <img src = "{{ url_for('static', filename = 'images/' + opportunity.image) }}">
+    <div class = "card-body">
+        <div>
+            <h2 style = "font-size: 30px;"> {{ opportunity.name }} </h2>
+            <h4> Lead-by - {{ opportunity.professor_name }}</h4>
+            <ul style = "list-style-type: none; padding: 0;">
+                {% for requirement in opportunity.requirements.split(':') %}
+                    <li> {{ requirement }} </li>
+                {% endfor %}
+            </ul>
+            <h4> Location: - {{ opportunity.location }} </h4>
+        </div>
+        <div class = "card-buttons">
+            <a href = "/delete/{{ opportunity.id }}" class = "btn-delete">Delete</a>
+            <a href = "/learn-more-professor/{{ opportunity.id }}" class = "btn-learn">Learn More</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'student-base.html' %}
+{% block content %}
+<div class = "title">
+    <h1>Register</h1>
+</div>
+
+<div class = "form">
+    <div class = "form-container">
+        <form method = "POST" action = "">
+            {{ form.hidden_tag() }}
+            <p>{{ form.email.label }}
+            {{ form.email }} </p>
+            <p>Password must be between 8 and 20 characters inclusive</p>
+            <p>{{ form.password.label }}
+            {{ form.password }} </p>
+            <p> {{ form.type.label }}
+            {{ form.type }}</p>
+            <p> {{ form.submit }} </p>
+        </form>
+    </div>
+</div>
+
+<div class = "button" style = "width: 300px;">
+    <a href = "/login">Have an account? Login here</a>
+</div>
+{% endblock %}

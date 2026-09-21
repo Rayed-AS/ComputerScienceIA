@@ -1,0 +1,23 @@
+{% extends 'student-base.html' %}
+{% block content %}
+<div class = "title">
+    <h1>Login</h1>
+</div>
+
+<div class = "form">
+    <div class = "form-container">
+        <form method = "POST" action = "">
+            {{ form.hidden_tag() }}
+            <p>{{ form.email.label }}
+            {{ form.email }} </p>
+            <p>{{ form.password.label }}
+            {{ form.password }} </p>
+            <p> {{ form.submit }} </p>
+        </form>
+    </div>
+</div>
+
+<div class = "button" style = "width: 300px;">
+    <a href = "/sign-up">Don't have an account? Register here</a>
+</div>
+{% endblock %}

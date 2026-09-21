@@ -1,0 +1,30 @@
+{% extends 'professor-base.html' %}
+{%block content%}
+<div class = "title">
+    <h1>Review Student Applications</h1>
+</div>
+{% for application in applications %}
+    {% if application.status == 'Waiting' %}
+        <div class = "card">
+                <div class = "body">
+                    <div>
+                        <h2> {{ application.opportunity_ID }} - {{ application.opportunity.name }} </h2>
+                        <p> Educational Institute - {{ application.institute }}</p>
+                        <p> Level - {{ application.level }}</p>
+                        <h4> Submission: </h4>
+                        <p> {{ application.content }} </p>
+                    </div>
+                </div>
+                <div style = "display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <div class = "card-icon">
+                        <h2><i class="fa-solid fa-clock-rotate-left" style = "font-size: 130px;"></i></h2>
+                    </div>
+                    <div class = "card-buttons">
+                        <a href = "/status-change/{{ application.id }}/Rejected" class = "btn-delete">Reject</a>
+                        <a href = "/status-change/{{ application.id }}/Approved" class = "btn-learn" style = "">Approve</a>
+                    </div>
+                </div>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock %}

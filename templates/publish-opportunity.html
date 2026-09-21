@@ -1,0 +1,29 @@
+{% extends 'professor-base.html' %}
+{% block content %}
+<div class = "title">
+    <h1>Publish Opportunity</h1>
+</div>
+
+<div class = "form">
+    <div class = "form-container">
+        <form method = "POST" action = "" enctype = 'multipart/form-data'>
+            {{ form.hidden_tag() }}
+            <p>{{ form.name.label() }}
+            {{ form.name }}</p>
+            <p>{{ form.professor_name.label() }}
+            {{ form.professor_name }}</p>
+            <p>{{ form.institute.label() }}
+            {{ form.institute }}</p>
+            <p>{{ form.requirements.label() }}
+            {{ form.requirements }}</p>
+            <p>{{ form.description.label () }}
+            {{ form.description }}</p>
+            <p> {{ form.location.label () }}
+            {{ form.location }}</p>
+            <p> {{ form.image.label() }}
+            {{ form.image }}</p>
+            <p>{{ form.submit }}</p>
+        </form>
+    </div>
+</div>
+{% endblock %}
